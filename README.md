@@ -23,6 +23,29 @@ allprojects {
 
 ```
 
+### Step 3. You can use it like this.
+```
+    PermissionHelper
+            .getInstance(this)
+            .setTitle("Permission")
+            .setPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                       Manifest.permission.READ_EXTERNAL_STORAGE,
+                       Manifest.permission.RECORD_AUDIO, Manifest.permission.INTERNET
+                       , Manifest.permission.ACCESS_NETWORK_STATE})
+            .withCustomDescriptions(
+                    new String[]{"允许写入外部存储", "允许读取外部存储",
+                                "允许录音", "允许访问互联网", "允许获取网络状态"})
+            .cancelCustomDescriptions()
+            .setOnRequestPermissionCallback(new PermissionHelper.PermissionCallbackImpl() {
+                @Override
+                public void onRequestPermissionsResult(List<PermissionBean> permissionBeans) {
+                    super.onRequestPermissionsResult(permissionBeans);
+                    Log.e("CALLBACK111", permissionBeans.toString());
+                }
+            })
+            .show();
+```
+
 ## Screenshots
 
 ![Gif screenshot captured by using Android Emulator.](https://github.com/JerryJin93/FastPermission/blob/master/screenshots/screenshot.gif)
