@@ -25,3 +25,4 @@ allprojects {
 
 ## Screenshots
 
+![Gif screenshot captured by using Android Emulator.](https://github.com/JerryJin93/FastPermission/blob/master/screenshots/screenshot.gif)
